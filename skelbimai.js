@@ -10,92 +10,30 @@ const skelbimai = [
         kambariuSk : "2",
         aukstas: "0",
         aukstuSk : "3",
-        paskirtis : "sandelyiavimo",
+        paskirtis : "sandeliavimo",
         statybosM : "1987",
-        tipas : "sandelys",
+        tipas : "mūrinis",
         sildymas : "nėra",
+        // link : "detaliau/1.html"
     },
     {
         img1 : "img/2.jpg",
         img2 : "img/2_2.jpg",
-        kaina : "280",
-        miestas : "Vilnius",
-        mikrorajonas : "Šiaurės miestelis",
-        adresas : "Lukšio g. 34",
-        plotas : "60",
-        kambariuSk : "3",
-        aukstas: "4",
-        aukstuSk : "4",
-        paskirtis : "Administracinės",
-        statybosM : "1976",
-        tipas : "komercinis",
-        sildymas : "elektra",
-    },
-    {
-        img1 : "img/3.jpg",
-        img2 : "img/3_2.jpg",
-        kaina : "1000",
-        miestas : "Vilnius",
-        mikrorajonas : "Senamiestis",
-        adresas : "Arsenalo g. 5",
-        plotas : "100",
-        kambariuSk : "3",
-        aukstas: "",
-        aukstuSk : "3",
-        paskirtis : "ginybinė",
-        statybosM : "13a pabaigoje",
-        tipas : "pilis",
-        sildymas : "malkomis",
-    },
-    {
-        img1 : "img/4.jpg",
-        img2 : "img/4_2.jpg",
-        kaina : "5000",
-        miestas : "Jakų k.",
-        mikrorajonas : "",
-        adresas : "Jakų g. 1",
-        plotas : "950",
-        kambariuSk : "35",
+        kaina : "180",
+        miestas : "Kaunas",
+        mikrorajonas : "Centras",
+        adresas : "centro g. 26",
+        plotas : "40",
+        kambariuSk : "2",
         aukstas: "1",
         aukstuSk : "1",
-        paskirtis : "komercinė",
-        statybosM : "2018",
-        tipas : "",
+        paskirtis : "administracinės",
+        statybosM : "1978",
+        tipas : "mūrinis",
         sildymas : "dujinis",
+        // link : "detaliau/2.html"
     },
-    {
-        img1 : "img/5.jpg",
-        img2 : "img/5_2.jpg",
-        kaina : "420",
-        miestas : "Bikinibotomas",
-        mikrorajonas : "Užumiestis",
-        adresas : "Kriauklės g. 124",
-        plotas : "69",
-        kambariuSk : "3",
-        aukstas: "1",
-        aukstuSk : "1",
-        paskirtis : "Gyvenamoji",
-        statybosM : "1999",
-        tipas : "Ananasas",
-        sildymas : "dujinis",
-    },
-    {
-        img1 : "img/6.jpg",
-        img2 : "img/6_2.jpg",
-        kaina : "700",
-        miestas : "Bikinibotomas",
-        mikrorajonas : "Užumiestis",
-        adresas : "Kriauklės g. 118",
-        plotas : "42",
-        kambariuSk : "1",
-        aukstas: "0",
-        aukstuSk : "1",
-        paskirtis : "Gyvenamoji",
-        statybosM : "1999",
-        tipas : "Akmuo",
-        sildymas : "elektrinis",
-    }
-
+    
 
 ];
 
@@ -106,13 +44,20 @@ skelbimai.forEach((skelbimas) => {
     const card = document.createElement('div');
     card.classList = 'card';
 
-    const structure = `<div class="pic"><img src="${skelbimas.img1}" </div>
-    <div class="text">
-        <h3 class="name">${skelbimas.miestas}</h3>
-        <p class="adress"><i class="fas fa-map-pin"></i> ${skelbimas.adresas}</p>
-        <p class="about">${skelbimas.kaina}</p>
-
+    const structure = `
+    <div class="stats">
+        <img src="${skelbimas.img1}" alt="${skelbimas.paskirtis}">
+        <div class="midle">
+            <h4>${skelbimas.kambariuSk} kambarių, ${skelbimas.paskirtis} paskirties NT nuoma</h4>
+            <div class="detales"><div><p>miestas: ${skelbimas.miestas}</p>
+                <p>rajonas: ${skelbimas.mikrorajonas}</p>
+                </div>
+                <div><p>paskirtis: ${skelbimas.paskirtis}</p>
+                    <p>kaina: ${skelbimas.kaina} &euro;</p></div></div>
+        </div>
     </div>
+    <a href="#">detaliau</a>
+
  `
 
     card.innerHTML = structure;
