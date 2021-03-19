@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin: 5% 20%;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+a {
+    background-color:rgb(196, 196, 196);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-self: flex-end;
+}
+
+a:hover {
+    background-color: rgb(143, 143, 143);
+}
+
+.card {
+    margin: 20px 0 ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07); 
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07);
+}
+.stats {
+    display: flex;
+    flex-direction: row;
+}
+.midle {
+    margin: 10px;
+}
+
+
+.detales {
+    display: flex;
+    margin: 10px;
+}
+
+.detales p {
+    margin: 0 10px;
+}
