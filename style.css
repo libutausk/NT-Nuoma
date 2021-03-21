@@ -10,9 +10,15 @@ main {
     margin: 5% 20%;
 }
 
-img {
+.homepage_img {
     width: 120px;
     height: 120px;
+    border-radius: 10px;
+}
+
+.inside_img {
+    width: 300px;
+    height: 300px;
     border-radius: 10px;
 }
 a {
@@ -40,20 +46,27 @@ a:hover {
     -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07); 
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07);
 }
+
+.card_inside {
+    flex-flow: column;
+    align-items: flex-start;
+}
+
 .stats {
     display: flex;
     flex-direction: row;
 }
-.midle {
+.middle {
     margin: 10px;
 }
 
 
-.detales {
+.info {
     display: flex;
     margin: 10px;
 }
 
-.detales p {
+.info p {
     margin: 0 10px;
 }
+
