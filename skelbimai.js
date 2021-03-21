@@ -182,10 +182,10 @@ skelbimai.forEach((skelbimas) => {
 
     const structure = `
     <div class="stats">
-        <img src="${skelbimas.img1}" alt="${skelbimas.paskirtis}">
-        <div class="midle">
-            <h4>${skelbimas.kambariuSk} kambarių, ${skelbimas.paskirtis} paskirties NT nuoma</h4>
-            <div class="detales"><div><p>miestas: ${skelbimas.miestas}</p>
+        <img class="homepage_img" src="${skelbimas.img1}" alt="${skelbimas.paskirtis}">
+        <div class="middle">
+            <h4>${skelbimas.kambariuSk} kambario/ų, ${skelbimas.paskirtis} paskirties nekilnojamo turto nuoma</h4>
+            <div class="info"><div><p>miestas: ${skelbimas.miestas}</p>
                 <p>rajonas: ${skelbimas.mikrorajonas}</p>
                 </div>
                 <div><p>paskirtis: ${skelbimas.paskirtis}</p>
