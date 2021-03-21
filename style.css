@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(236, 236, 236);
+}
+
+main {
+    margin: 5% 20%;
+}
+
+.homepage_img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.inside_img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+a {
+    background-color:rgb(196, 196, 196);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-self: flex-end;
+}
+
+a:hover {
+    background-color: rgb(143, 143, 143);
+}
+
+.card {
+    background-color: #fff;
+    margin: 20px 0 ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    -webkit-box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07);
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07);
+}
+
+.card_inside {
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+}
+.middle {
+    margin: 10px;
+}
+
+
+.info {
+    display: flex;
+    margin: 10px;
+}
+
+.info p {
+    margin: 0 10px;
+}
+/*--------------------------------------------------*/
+.search{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+#byWord{
+  padding-left: 25px;
+  width: 250px;
+  height: 30px;
+  background-image: url("search.png");
+  background-repeat: no-repeat;
+  background-size: 7%;
+  background-position: left;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 0.5px solid;
+}
+.buttonSearch{
+  background: #F0ECE6;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  outline: none;
+  border: 0.5px solid;
+  -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.16);
+box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.16);
+}
+.buttonSearch:active{
+  background: #E4E0DA;
+}
+#selectCity, #selectDistrict, #selectPurpose, #byWord, #inputPrice1, #inputPrice2{
+  outline: none;
+  font-size: 16px;
+  -webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.16);
+box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.16);
+}
+#inputPrice1, #inputPrice2{
+  width: 80px;
+  border: 0.5px solid;
+}
+.atskirti{
+  margin: 3% 0;
+}
+.notFound{
+  text-align: center;
+  margin-top: 20%;
+  font-size: 30px;
+}

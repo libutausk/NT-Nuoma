@@ -1,2 +1,36 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NT-nuoma</title>
+</head>
+<body>
+
+    <main>
+
+    <h1>NT nuoma</h1>
+
+      <div class="search">
+        <input id="byWord" type="text" placeholder="Įveskite pagal žodį arba frazę">
+        <select id="selectCity" name="city" onchange="ChangeDistrictList()"></select>
+        <select id="selectDistrict" name="district">
+          <option value="Mkrorajonas">Mikrorajonas</option>
+        </select>
+        <select id="selectPurpose" name="purpose">
+          <option value="Paskirtis">Paskirtis</option>
+        </select>
+        <input id="inputPrice1" type="text" placeholder="kaina nuo">
+        <input id="inputPrice2" type="text" placeholder="kaina iki">
+        <input class="buttonSearch" type="submit" value="Ieškoti" onclick="searchFunction()">
+      </div>
+
+      <hr class="atskirti">
+
+    </main>
+    <script src="skelbimai.js"></script>
+
+</body>
 </html>
