@@ -169,7 +169,6 @@ const skelbimai = [
         sildymas : "elektrinis",
         link : "detaliau/10.html"
     },
-    
 
 ];
 
@@ -198,5 +197,180 @@ skelbimai.forEach((skelbimas) => {
 
     card.innerHTML = structure;
     main.appendChild(card);
+});
+
+//--------------------------------------------------------------
+const miestai=[
+  {
+    miestas: 'Miestas',
+    mikrorajonai: ['Mikrorajonas']
+  },
+  {
+    miestas: 'Alytus',
+    mikrorajonai: ['Vidzgiris', 'Putinai', 'Dainava', 'Senamiestis', 'Centras', 'Pirmas Alytus']
+  },
+  {
+    miestas: 'Kaunas',
+    mikrorajonai: ['Žaliakalnis', 'Šilainiai', 'Senamiestis', 'Centras', 'Kalniečiai', 'Aukštieji Šančiai', 'Žemieji Šančiai', 'Aleksotas']
+  },
+  {
+    miestas: 'Vilnius',
+    mikrorajonai: ['Šeškinė', 'Senamiestis', 'Antakalnis', 'Baltupiai', 'Jeruzalė', 'Paneriai', 'Vilkpėdė', 'Dvarčionys', 'Centras']
+  }
+];
+for(var i=1; i<miestai.length; i++){
+  miestai[i].mikrorajonai.sort();
+}
+
+const selectCity=document.getElementById('selectCity');
+miestai.forEach((miestas) => {
+  const option=document.createElement('option');
+  selectCity.appendChild(option);
+  option.innerText=miestas.miestas;
+  option.value=miestas.miestas;
+});
+
+function ChangeDistrictList(){
+  var cityList=document.getElementById('selectCity');
+  var districtList=document.getElementById('selectDistrict');
+  var index=cityList.selectedIndex;   // pasirinkto miesto indeksas
+
+  while(districtList.options.length){  // isvalo mikrorajonu pasirinkimus
+    districtList.remove(0);
+  }
+
+  if(index!=0){   // kad nepridetu 'mikrorajonas' pasirinkimui 'miestas', nes jis ir tai jau pridetas
+    var option=document.createElement('option');
+    districtList.appendChild(option).innerText="Mikrorajonas";
+    option.value="Mikrorajonas";
+    districtList.appendChild(option);
+  }
+
+  for(var i=0; i<miestai[index].mikrorajonai.length; i++){  // prideda pasirinkto miesto mikrorajonys
+    var option=document.createElement('option');
+    districtList.appendChild(option).innerText=miestai[index].mikrorajonai[i];
+    option.value=miestai[index].mikrorajonai[i];
+    districtList.appendChild(option);
+  }
+}
+
+const paskirtys=['administracinės', 'sandėliavimo', 'prekybinės', 'gamybinės'];
+paskirtys.sort();
+const selectPurpose=document.getElementById('selectPurpose');
+for(i in paskirtys){
+    const option=document.createElement('option');
+    selectPurpose.appendChild(option);
+    option.innerText=paskirtys[i];
+    option.value=paskirtys[i];
+}
+
+function displayCard(skelbimai, i){  // atspausdina skelbima
+  const card = document.createElement('div');
+  card.classList = 'card';
+  const structure = `
+  <div class="stats">
+      <img src="${skelbimai[i].img1}" alt="${skelbimai[i].paskirtis}">
+      <div class="midle">
+          <h4>${skelbimai[i].kambariuSk} kambarių, ${skelbimai[i].paskirtis} paskirties NT nuoma</h4>
+          <div class="detales"><div><p>miestas: ${skelbimai[i].miestas}</p>
+              <p>rajonas: ${skelbimai[i].mikrorajonas}</p>
+              </div>
+              <div><p>paskirtis: ${skelbimai[i].paskirtis}</p>
+                  <p>kaina: ${skelbimai[i].kaina} &euro;</p></div></div>
+      </div>
+  </div>
+  <a href="${skelbimai[i].link}">detaliau</a>`
+  card.innerHTML = structure;
+  main.appendChild(card);
+}
+
+function searchFunction(){  // paspaudus mygtuka "ieskoti" suveikia sita funkcija
+  var word=document.getElementById('byWord').value.toUpperCase();
+  var ilgis=word.length;
+
+  var cityList=document.getElementById('selectCity');
+  var indexCity=cityList.selectedIndex;
+  var choiceCity=miestai[indexCity].miestas;
+
+  var districtList=document.getElementById('selectDistrict');
+  var indexDistrict=districtList.selectedIndex;
+  if(indexDistrict==0) var choiceDistrict='Mikrorajonas';  // reikia taip, nes objekto miestai masyve mikrorajonai nera 'mikrorajonas'
+  else var choiceDistrict=miestai[indexCity].mikrorajonai[indexDistrict-1];
+
+  var purposeList=document.getElementById('selectPurpose');
+   var indexPurpose=purposeList.selectedIndex;
+  if(indexPurpose==0) var choicePurpose='Paskirtis';
+  else var choicePurpose=paskirtys[indexPurpose-1];
+
+  var price1=document.getElementById('inputPrice1').value;
+  var price2=document.getElementById('inputPrice2').value;
+
+  var card=document.getElementsByClassName('card');
+  while(card.length>0) card[0].remove();
+
+  var notFound=document.getElementsByClassName('notFound');
+  while(notFound.length>0) notFound[0].remove();
+
+  var count=0;
+
+  for(var i=0; i<skelbimai.length; i++){
+    var space=0;
+    var countWords=0;
+    var countSpaces=0;
+    for(var j=space; j<=ilgis; j++){
+
+      if(word[j]==' ' || j==ilgis){
+        if(word.slice(space, j)==skelbimai[i].kambariuSk.slice(0, j-space) || word.slice(space, j)==skelbimai[i].paskirtis.toUpperCase().slice(0, j-space) || word.slice(space, j)==skelbimai[i].miestas.toUpperCase().slice(0, j-space) || word.slice(space, j)==skelbimai[i].mikrorajonas.toUpperCase().slice(0, j-space) || word.slice(space, j)==skelbimai[i].kaina.slice(0, j-space)){
+          countWords++;
+        }
+        space=j+1;
+        countSpaces++;
+      }
+    }
+
+    if(choiceCity==skelbimai[i].miestas || choiceCity=='Miestas'){
+
+      if(choiceDistrict==skelbimai[i].mikrorajonas || choiceDistrict=='Mikrorajonas'){
+
+        if(choicePurpose==skelbimai[i].paskirtis || choicePurpose=='Paskirtis'){
+
+          if(price1!='' && price2!=''){
+            if(skelbimai[i].kaina>=parseFloat(price1) && skelbimai[i].kaina<=parseFloat(price2)){
+              if(countWords==countSpaces){
+                displayCard(skelbimai, i);
+                count++;
+              }
+            }
+          } else if(price1!=''){
+            if(skelbimai[i].kaina>=parseFloat(price1)){
+              if(countWords==countSpaces){
+                displayCard(skelbimai, i);
+                count++;
+              }
+            }
+          } else if(price2!=''){
+            if(skelbimai[i].kaina<=parseFloat(price2)){
+              if(countWords==countSpaces){
+                displayCard(skelbimai, i);
+                count++;
+              }
+            }
+          } else{
+            if(countWords==countSpaces){
+              displayCard(skelbimai, i);
+              count++;
+            }
+          }
+        }
+      }
+    }
+  }
+  if(count==0){
+    const notFound=document.createElement('p');
+    main.appendChild(notFound);
+    notFound.classList='notFound';
+    notFound.innerText='rezultatų nerasta'
+  }
+}
     
 });
