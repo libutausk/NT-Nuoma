@@ -269,10 +269,10 @@ function displayCard(skelbimai, i){  // atspausdina skelbima
   card.classList = 'card';
   const structure = `
   <div class="stats">
-      <img src="${skelbimai[i].img1}" alt="${skelbimai[i].paskirtis}">
-      <div class="midle">
-          <h4>${skelbimai[i].kambariuSk} kambarių, ${skelbimai[i].paskirtis} paskirties NT nuoma</h4>
-          <div class="detales"><div><p>miestas: ${skelbimai[i].miestas}</p>
+      <img class="homepage_img" src="${skelbimai[i].img1}" alt="${skelbimai[i].paskirtis}">
+      <div class="middle">
+          <h4>${skelbimai[i].kambariuSk} kambario/ų, ${skelbimai[i].paskirtis} paskirties nekilnojamo turto nuoma</h4>
+          <div class="info"><div><p>miestas: ${skelbimai[i].miestas}</p>
               <p>rajonas: ${skelbimai[i].mikrorajonas}</p>
               </div>
               <div><p>paskirtis: ${skelbimai[i].paskirtis}</p>
