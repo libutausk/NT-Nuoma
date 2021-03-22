@@ -69,6 +69,7 @@ a:hover {
 .info p {
     margin: 0 10px;
 }
+
 /*--------------------------------------------------*/
 .search{
   display: flex;
@@ -117,3 +118,4 @@ box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.16);
   margin-top: 20%;
   font-size: 30px;
 }
+

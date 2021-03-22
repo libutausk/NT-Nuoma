@@ -170,7 +170,6 @@ const skelbimai = [
         link : "detaliau/10.html"
     },
 
-
 ];
 
 const main = document.querySelector('main');
@@ -193,12 +192,13 @@ skelbimai.forEach((skelbimas) => {
         </div>
     </div>
     <a href="${skelbimas.link}">detaliau</a>
+
  `
 
     card.innerHTML = structure;
     main.appendChild(card);
-
 });
+
 //--------------------------------------------------------------
 const miestai=[
   {
@@ -372,3 +372,5 @@ function searchFunction(){  // paspaudus mygtuka "ieskoti" suveikia sita funkcij
     notFound.innerText='rezultatų nerasta'
   }
 }
+    
+});
