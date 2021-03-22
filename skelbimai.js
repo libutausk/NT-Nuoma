@@ -372,5 +372,3 @@ function searchFunction(){  // paspaudus mygtuka "ieskoti" suveikia sita funkcij
     notFound.innerText='rezultatų nerasta'
   }
 }
-    
-});
